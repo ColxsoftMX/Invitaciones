@@ -5,4 +5,5 @@ export const esTranslationsInvitations = {
 export const esTranslationsInvitationsAdmin = {
     IA1: 'Crear invitación',
     IA2: 'Listado de invitaciones',
+    IA3: 'Cancelar',
 };

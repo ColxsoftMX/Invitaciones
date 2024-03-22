@@ -5,4 +5,5 @@ export const enTranslationsInvitations = {
 export const enTranslationsInvitationsAdmin = {
     IA1: 'Create invitation',
     IA2: 'Invitations list',
+    IA3: 'Cancel',
 };
