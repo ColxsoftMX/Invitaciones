@@ -1,6 +1,8 @@
 import { Button, Col, Row } from "antd";
 import { useLanguageInvitationsAdmin } from "../../../utils/translations/i18n";
 import UsersList from "./UsersList";
+import { useState } from "react";
+import CreateInvitation from "./CreateInvitation";
 
 const UserAdminView: React.FC = () => {
     const { t } = useLanguageInvitationsAdmin();
@@ -32,15 +34,30 @@ const UserAdminView: React.FC = () => {
         }
     ];
 
+    const [createInvitation, setCreateInvitation] = useState<boolean>(false);
+
+    const handleCreateInvitation = () => {
+        if (createInvitation) {
+            setCreateInvitation(false);
+        }
+        else {
+            setCreateInvitation(true);
+        }
+    }
+
     return (
         <>
             <Row>
                 <Col span={24} style={{ textAlign: 'end' }}>
-                    <Button type="primary" style={{ margin: '20px 60px 0 0' }}>{t('IA1')}</Button>
+                    <Button type="primary" style={{ margin: '5px 60px 0 0' }} onClick={handleCreateInvitation}>{!createInvitation ? t('IA1') : t('IA3')}</Button>
                 </Col>
             </Row>
 
-            <UsersList data={data} />
+            {createInvitation ? (
+                <CreateInvitation />
+            ) : (
+                <UsersList data={data} />
+            )}
         </>
     );
 }
