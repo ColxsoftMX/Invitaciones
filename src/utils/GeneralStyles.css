@@ -1,0 +1,31 @@
+.m-0{
+    margin: 0;
+}
+
+.m-5{
+    margin: 5px;
+}
+
+.mt-5{
+    margin: 5px 0 0 0;
+}
+
+.mt-15{
+    margin: 15px 0 0 0;
+}
+
+.mb-0{
+    margin-bottom: 0;
+}
+
+.my-15{
+    margin: 15px 0;
+}
+
+.fc-gray{
+    color: #666;
+}
+
+.hr-gray{
+    color: #ffffff;
+}
