@@ -33,11 +33,11 @@ const useLanguage = (translations: Record<Languages, Record<string, string>>) =>
 export { useLanguage };
 
 import {
-  esTranslationsInvitations,
+  esTranslationsInvitations, esTranslationsInvitationsAdmin
 } from './languages/es';
 
 import {
-  enTranslationsInvitations,
+  enTranslationsInvitations, enTranslationsInvitationsAdmin
 } from './languages/en';
 
 const languagesInvitations: Record<Languages, Record<string, string>> = {
@@ -45,5 +45,10 @@ const languagesInvitations: Record<Languages, Record<string, string>> = {
   en: enTranslationsInvitations,
 };
 
+const languagesInvitationsAdmin: Record<Languages, Record<string, string>> = {
+  es: esTranslationsInvitationsAdmin,
+  en: enTranslationsInvitationsAdmin,
+};
 
-export const useLanguageUsers = () => useLanguage(languagesInvitations);
+export const useLanguageInvitations = () => useLanguage(languagesInvitations);
+export const useLanguageInvitationsAdmin = () => useLanguage(languagesInvitationsAdmin);

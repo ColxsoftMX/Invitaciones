@@ -1,5 +1,8 @@
 export const enTranslationsInvitations = {
-    CI1: 'Invitations',
-    CI2: 'Create invitation',
-    CI3: 'Invitations list',
+    I1: 'Invitations',
+};
+
+export const enTranslationsInvitationsAdmin = {
+    IA1: 'Create invitation',
+    IA2: 'Invitations list',
 };
