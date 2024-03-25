@@ -3,7 +3,8 @@ import "../../../utils/GeneralStyles.css"
 import ErrorModal from "../global/ErrorModal";
 import { useState } from "react";
 import SuccessModal from "../global/SuccessModal";
-import { useNavigate } from "react-router-dom";
+import { useLanguageCreateInvitation } from "../../../utils/translations/i18n";
+import { CheckOutlined } from "@ant-design/icons";
 
 interface CreateInvitationData {
     familyName: string;
@@ -11,11 +12,15 @@ interface CreateInvitationData {
     fechaFin: string;
 }
 
-const CreateInvitation: React.FC = () => {
+interface CreateInvitationProps {
+    isCreating: (value: boolean) => void;
+}
+
+const CreateInvitation: React.FC<CreateInvitationProps> = ({ isCreating }) => {
+    const { t } = useLanguageCreateInvitation();
+
     const [errorMessage, setErrorMessage] = useState<string>("");
     const [successMessage, setSuccessMessage] = useState<string>("");
-
-    const navigate = useNavigate();
 
     const onFinish = (values: CreateInvitationData) => {
         const fechaIniObject = new Date(values.fechaIni);
@@ -33,7 +38,6 @@ const CreateInvitation: React.FC = () => {
         values.fechaFin = formattedFechaFin;
 
         console.log('Success:', values);
-        navigate('/invitaciones/')
         setSuccessMessage("Invitación creada exitosamente");
     };
 
@@ -44,44 +48,44 @@ const CreateInvitation: React.FC = () => {
                     <Col span={12}>
                         <Form.Item
                             style={{ marginRight: "30px" }}
-                            label="Nombre de la familia"
+                            label={t('CI1')}
                             name="familyName"
-                            rules={[{ required: true, message: 'Por favor ingrese el nombre de la familia' }]}
+                            rules={[{ required: true, message: t('CI1W') }]}
                         >
-                            <Input />
+                            <Input placeholder={t('CI1P')} />
                         </Form.Item>
                     </Col>
 
                     <Col span={6}>
                         <Form.Item
-                            label="Fecha de inicio"
+                            label={t('CI2')}
                             name="fechaIni"
-                            rules={[{ required: true, message: 'Por favor ingrese la fecha de inicio' }]}
+                            rules={[{ required: true, message: t('CI2W') }]}
                         >
-                            <DatePicker style={{ width: '90%' }} />
+                            <DatePicker style={{ width: '90%' }} placeholder={t('CI2P')} />
                         </Form.Item>
                     </Col>
 
                     <Col span={6}>
                         <Form.Item
-                            label="Fecha de fin"
+                            label={t('CI3')}
                             name="fechaFin"
-                            rules={[{ required: true, message: 'Por favor ingrese la fecha de fin' }]}
+                            rules={[{ required: true, message: t('CI3W') }]}
                         >
-                            <DatePicker style={{ width: '90%' }} />
+                            <DatePicker style={{ width: '90%' }} placeholder={t('CI3P')} />
                         </Form.Item>
                     </Col>
 
                     <Form.Item>
                         <Button type="primary" htmlType="submit">
-                            Crear invitación
+                        <CheckOutlined />{t('CI4')}
                         </Button>
                     </Form.Item>
                 </Row>
             </Form>
 
             {errorMessage !== "" && <ErrorModal error={errorMessage} onClose={() => setErrorMessage("")} />}
-            {successMessage !== "" && <SuccessModal success={successMessage} onclose={() => setSuccessMessage("")} />}
+            {successMessage !== "" && <SuccessModal success={successMessage} onclose={() => { setSuccessMessage(""), isCreating(false) }} />}
         </>
     );
 }
