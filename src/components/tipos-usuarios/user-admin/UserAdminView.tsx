@@ -49,7 +49,11 @@ const UserAdminView: React.FC = () => {
         <>
             <Row>
                 <Col span={24} style={{ textAlign: 'end' }}>
-                    <Button type="primary" style={{ margin: '5px 60px 0 0' }} onClick={handleCreateInvitation}>{!createInvitation ? t('IA1') : t('IA3')}</Button>
+                    {createInvitation ? (
+                        <Button type="primary" style={{ margin: '5px 60px 0 0' }} onClick={handleCreateInvitation} danger>{t('IA3')}</Button>
+                    ) : (
+                        <Button type="primary" style={{ margin: '5px 60px 0 0' }} onClick={handleCreateInvitation}>{t('IA1')}</Button>
+                    )}
                 </Col>
             </Row>
 
