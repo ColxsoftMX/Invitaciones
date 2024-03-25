@@ -1,15 +1,15 @@
 import { Row } from "antd";
 import UserAdminView from "./tipos-usuarios/user-admin/UserAdminView";
-import UserUserView from "./tipos-usuarios/UserUserView";
+import UserUserView from "./tipos-usuarios/user-user/UserUserView";
 import { useLanguageInvitations } from "../utils/translations/i18n";
 
 const InvitacionesView: React.FC = () => {
     const { t } = useLanguageInvitations();
 
     // ADMIN
-    const userDat = localStorage.getItem('userData');
+    // const userDat = localStorage.getItem('userData');
     // USER
-    // const userDat = localStorage.getItem('userData2');
+    const userDat = localStorage.getItem('userData2');
     const userData = userDat ? JSON.parse(userDat) : null;
 
     return (
