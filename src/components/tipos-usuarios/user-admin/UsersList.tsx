@@ -25,7 +25,7 @@ const UsersList: React.FC<UserListProps> = ({ data }) => {
                         <Col span={24} key={item.id_invitation}>
                             <hr className="hr-gray my-15" />
                             <Row style={{ margin: '0 0 0 20px', padding: '0' }}>
-                                <Col span={22} style={{ fontSize: '13px', fontWeight: 'bold' }}>
+                                <Col span={22} style={{ fontSize: '14px', fontWeight: 'bold' }}>
                                     <p className="mt-5">{item.name_invitation}</p>
                                 </Col>
 
@@ -35,7 +35,7 @@ const UsersList: React.FC<UserListProps> = ({ data }) => {
                             </Row>
                             <Row style={{ margin: '0 0 0 20px', padding: '0' }}>
                                 <Col span={24} style={{ fontSize: '13px' }}>
-                                    <p className="mt-5 fc-gray">{item.name_user}</p>
+                                    <p className="m-0 fc-gray">{item.name_user}</p>
                                 </Col>
                             </Row>
                         </Col>
