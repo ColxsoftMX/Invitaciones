@@ -20,3 +20,26 @@ export const esTranstationsCreateInvitation = {
     CI3P: 'Seleccione la fecha de fin',
     CI4: 'Crear invitación',
 };
+
+export const esTranslationsUserUserView = {
+    UUV1: 'Lista de invitaciones',
+    UUV2: 'Crear invitación',
+};
+
+export const esTranslationsInvitationsList = {
+    IL1: 'Invitación pendiente',
+    IL2: 'Invitación aceptada',
+    IL3: 'Invitación cancelada',
+    IL4: 'Invitación rechazada',
+    IL5: 'Familia:',
+};
+
+export const esTranslationsCreateInvitationUU = {
+    CI1: 'Nombre de la familia',
+    CI1W: 'Por favor ingrese el nombre de la familia',
+    CI1P: 'Ingrese el nombre de la familia',
+    CI2: 'Número de boletos',
+    CI2W: 'Por favor ingrese el número de boletos',
+    CI2P: 'Ingrese el número de boletos',
+    CI3: 'Crear invitación',
+};

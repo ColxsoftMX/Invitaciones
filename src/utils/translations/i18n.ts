@@ -33,11 +33,13 @@ const useLanguage = (translations: Record<Languages, Record<string, string>>) =>
 export { useLanguage };
 
 import {
-  esTranslationsInvitations, esTranslationsInvitationsAdmin, esTranstationsCreateInvitation
+  esTranslationsInvitations, esTranslationsInvitationsAdmin, esTranstationsCreateInvitation, esTranslationsUserUserView, esTranslationsInvitationsList,
+  esTranslationsCreateInvitationUU,
 } from './languages/es';
 
 import {
-  enTranslationsInvitations, enTranslationsInvitationsAdmin, enTranstationsCreateInvitation
+  enTranslationsInvitations, enTranslationsInvitationsAdmin, enTranstationsCreateInvitation, enTranslationsUserUserView, enTranslationsInvitationsList,
+  enTranslationsCreateInvitationUU,
 } from './languages/en';
 
 const languagesInvitations: Record<Languages, Record<string, string>> = {
@@ -55,6 +57,24 @@ const languagesCreateInvitation: Record<Languages, Record<string, string>> = {
   en: enTranstationsCreateInvitation,
 };
 
+const languagesUserUserView: Record<Languages, Record<string, string>> = {
+  es: esTranslationsUserUserView,
+  en: enTranslationsUserUserView,
+};
+
+const languagesInvitationsList: Record<Languages, Record<string, string>> = {
+  es: esTranslationsInvitationsList,
+  en: enTranslationsInvitationsList,
+};
+
+const languagesCreateInvitationUU: Record<Languages, Record<string, string>> = {
+  es: esTranslationsCreateInvitationUU,
+  en: enTranslationsCreateInvitationUU,
+};
+
 export const useLanguageInvitations = () => useLanguage(languagesInvitations);
 export const useLanguageInvitationsAdmin = () => useLanguage(languagesInvitationsAdmin);
 export const useLanguageCreateInvitation = () => useLanguage(languagesCreateInvitation);
+export const useLanguageUserUserView = () => useLanguage(languagesUserUserView);
+export const useLanguageInvitationsList = () => useLanguage(languagesInvitationsList);
+export const useLanguageCreateInvitationUU = () => useLanguage(languagesCreateInvitationUU);
