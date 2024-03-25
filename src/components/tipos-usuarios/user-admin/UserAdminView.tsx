@@ -63,7 +63,7 @@ const UserAdminView: React.FC = () => {
             </Row>
 
             {createInvitation ? (
-                <CreateInvitation isCreating={getCreating}/>
+                <CreateInvitation isCreating={getCreating} />
             ) : (
                 <UsersList data={data} />
             )}
