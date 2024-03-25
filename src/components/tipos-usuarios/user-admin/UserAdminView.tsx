@@ -3,6 +3,7 @@ import { useLanguageInvitationsAdmin } from "../../../utils/translations/i18n";
 import UsersList from "./UsersList";
 import { useState } from "react";
 import CreateInvitation from "./CreateInvitation";
+import { PlusOutlined, CloseOutlined } from "@ant-design/icons";
 
 const UserAdminView: React.FC = () => {
     const { t } = useLanguageInvitationsAdmin();
@@ -36,6 +37,10 @@ const UserAdminView: React.FC = () => {
 
     const [createInvitation, setCreateInvitation] = useState<boolean>(false);
 
+    const getCreating = (getCreatin: boolean) => {
+        setCreateInvitation(getCreatin);
+    };
+
     const handleCreateInvitation = () => {
         if (createInvitation) {
             setCreateInvitation(false);
@@ -50,15 +55,15 @@ const UserAdminView: React.FC = () => {
             <Row>
                 <Col span={24} style={{ textAlign: 'end' }}>
                     {createInvitation ? (
-                        <Button type="primary" style={{ margin: '5px 60px 0 0' }} onClick={handleCreateInvitation} danger>{t('IA3')}</Button>
+                        <Button type="primary" style={{ margin: '5px 60px 0 0' }} onClick={handleCreateInvitation} danger><CloseOutlined />{t('IA3')}</Button>
                     ) : (
-                        <Button type="primary" style={{ margin: '5px 60px 0 0' }} onClick={handleCreateInvitation}>{t('IA1')}</Button>
+                        <Button type="primary" style={{ margin: '5px 60px 0 0' }} onClick={handleCreateInvitation}><PlusOutlined />{t('IA1')}</Button>
                     )}
                 </Col>
             </Row>
 
             {createInvitation ? (
-                <CreateInvitation />
+                <CreateInvitation isCreating={getCreating}/>
             ) : (
                 <UsersList data={data} />
             )}
